@@ -1,0 +1,274 @@
+﻿
+@model Omnimerit.Data.Model.Database.Circular
+<link href="~/Scripts/Css/bootstrap.min.css" rel="stylesheet" />
+<!-- Font Awesome -->
+<link href="~/Scripts/Css/font-awesome.min.css" rel="stylesheet" />
+<!-- Custom Theme Style -->
+<link href="~/Scripts/Css/custom.min.css" rel="stylesheet" />
+<!-- TextEditor Theme Style -->
+<link href="~/Scripts/Css/bootstrap.css" rel="stylesheet" />
+<link href="~/Scripts/Less/normalize.less" rel="stylesheet" />
+<link href="~/Scripts/Less/scaffolding.less" rel="stylesheet" />
+<link href="~/Scripts/Less/buttons.less" rel="stylesheet" />
+
+<link href="~/Scripts/Css/prettify.min.css" rel="stylesheet" />
+
+<script src="~/Scripts/JavaScripts/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="~/Scripts/JavaScripts/bootstrap.min.js"></script>
+<!-- FastClick -->
+<!-- Custom Theme Scripts -->
+<script src="~/Scripts/JavaScripts/custom.min.js"></script>
+<!-- TextEditor-->
+<script src="~/Scripts/JavaScripts/bootstrap-wysiwyg.min.js"></script>
+<script src="~/Scripts/JavaScripts/jquery.hotkeys.js"></script>
+<script src="~/Scripts/JavaScripts/prettify.js"></script>
+<!--FuctionJavascript-->
+<script src="~/Content/Script/GetCircular.js"></script>
+<script src="~/Scripts/Utilities/Utilities.js"></script>
+
+
+<style>
+    body {
+        background-color: white;
+        margin-top: 1%;
+    }
+</style>
+<div class="row">
+
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-12">
+           
+            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#Circular" id="Circular-tab" role="tab" data-toggle="tab" aria-expanded="true">Circular Details</a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="#List" role="tab" id="List-tab" data-toggle="tab" aria-expanded="false">List</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="Circular" aria-labelledby="Circular-tab">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Circular Details<small></small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="#">Settings</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        @*<form class="form-horizontal form-label-left">*@
+                         @using (Html.BeginForm("AddCircular", "Employee", FormMethod.Post))
+                         { 
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Circular Subject</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    @*<input type="text" class="form-control" placeholder="Circular Subject">*@
+                                    @Html.TextBox("Subject", null, new { @class = "form-control", placeholder = "Circular Subject" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Reference No.</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    @*<input type="text" class="form-control" placeholder="Reference No.">*@
+                                    @Html.TextBox("Reference_Number", null, new { @class = "form-control", placeholder = "Reference No." })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Circular Contents</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <div class="x_content">
+                                        <div id="alerts"></div>
+                                        <div class="btn-toolbar editor" data-role="editor-toolbar" data-target="#descr">
+                                            <div class="btn-group">
+                                                <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
+                                                <ul class="dropdown-menu"></ul>
+                                            </div>
+
+                                            <div class="btn-group">
+                                                <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a data-edit="fontSize 5">
+                                                            <p style="font-size:17px">Huge</p>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a data-edit="fontSize 3">
+                                                            <p style="font-size:14px">Normal</p>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a data-edit="fontSize 1">
+                                                            <p style="font-size:11px">Small</p>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="btn-group">
+                                                <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+                                                <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+                                                <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="fa fa-strikethrough"></i></a>
+                                                <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+                                            </div>
+
+                                            <div class="btn-group">
+                                                <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="fa fa-list-ul"></i></a>
+                                                <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="fa fa-list-ol"></i></a>
+                                                <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
+                                                <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="fa fa-indent"></i></a>
+                                            </div>
+
+                                            <div class="btn-group">
+                                                <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
+                                                <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
+                                                <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
+                                                <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
+                                            </div>
+
+                                            <div class="btn-group">
+                                                <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="fa fa-link"></i></a>
+                                                <div class="dropdown-menu input-append">
+                                                    <input class="span2" placeholder="URL" type="text" data-edit="createLink">
+                                                    <button class="btn" type="button">Add</button>
+                                                </div>
+                                                <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="fa fa-cut"></i></a>
+                                            </div>
+
+                                            <div class="btn-group">
+                                                <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
+                                                <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
+                                            </div>
+                                        </div>
+
+                                        <div id="editor-one" class="editor-wrapper placeholderText" contenteditable="true">
+
+                                            @*<textarea name="descr" id="descr" style="display:none;"></textarea>*@
+                                            @Html.TextArea("Content", null, new { @id = "descr", style = "display:none;" })
+                                        </div>
+                                        <br>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Circular Date</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    @*<input type="date" class="form-control" placeholder="Code">*@
+                                    @Html.TextBox("Date", null, new { @class = "form-control",type="date", placeholder = "Circular Date"  })
+                                </div>
+
+                            </div>
+
+
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                    <button type="submit" class="btn btn-success">Save</button>
+
+                                </div>
+                            </div>
+                         }
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="List" aria-labelledby="List-tab">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><small></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#">Settings 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Settings 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            @*<table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Circular Subject</th>
+                                        <th>Reference No.</th>
+                                        <th>Date</th>
+                                        <th>manage  </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Examination Form</td>
+                                        <td>A1223</td>
+                                        <td>2017-May-05</td>
+                                        <td><span class="glyphicon glyphicon-edit">/</span><span class="glyphicon glyphicon-remove"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Attendence</td>
+                                        <td>101</td>
+                                        <td>2014-May-05</td>
+                                        <td><span class="glyphicon glyphicon-edit">/</span><span class="glyphicon glyphicon-remove"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Test</td>
+                                        <td>105</td>
+                                        <td>2014-June-05</td>
+
+                                        <td><span class="glyphicon glyphicon-edit">/</span><span class="glyphicon glyphicon-remove"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>*@
+                            <table id="tabular" class="table table-striped"></table>
+</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+       
+    
+</div>
+
+
+
+
+

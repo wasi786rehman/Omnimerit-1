@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OmnimeritModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Omnimerit.dbo.AirResult' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AirResult">
+          <Key>
+            <PropertyRef Name="S#no" />
+          </Key>
+          <Property Name="S#no" Type="float" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Mobile No" Type="float" />
+          <Property Name="State Code" Type="float" />
+          <Property Name="Centre Code" Type="float" />
+          <Property Name="Institute" Type="nvarchar" MaxLength="255" />
+          <Property Name="No of correct response" Type="float" />
+          <Property Name="No of Incorrect response" Type="float" />
+          <Property Name="No of responses Left Blank" Type="float" />
+          <Property Name="Score" Type="float" />
+          <Property Name="Percentage" Type="real" />
+          <Property Name="AIR" Type="float" />
+          <Property Name="Percentile" Type="real" />
+          <Property Name="Kanpur Rank" Type="float" />
+          <Property Name="Centre Rank" Type="float" />
+          <Property Name="Attempt Rate" Type="float" />
+          <Property Name="Accuracy" Type="real" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Uid" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="StudentInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Uid" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="40" />
+          <Property Name="Phone" Type="int" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="Class" Type="varchar" MaxLength="10" />
+          <Property Name="Board" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="OmnimeritModelStoreContainer">
+          <EntitySet Name="login" EntityType="Self.login" Schema="wasi" store:Type="Tables" />
+          <EntitySet Name="StudentInfo" EntityType="Self.StudentInfo" Schema="wasi" store:Type="Tables" />
+          <EntitySet Name="AirResult" EntityType="Self.AirResult" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AirResult].[S#no] AS [S#no], 
+    [AirResult].[Name] AS [Name], 
+    [AirResult].[Mobile No] AS [Mobile No], 
+    [AirResult].[State Code] AS [State Code], 
+    [AirResult].[Centre Code] AS [Centre Code], 
+    [AirResult].[Institute] AS [Institute], 
+    [AirResult].[No of correct response] AS [No of correct response], 
+    [AirResult].[No of Incorrect response] AS [No of Incorrect response], 
+    [AirResult].[No of responses Left Blank] AS [No of responses Left Blank], 
+    [AirResult].[Score] AS [Score], 
+    [AirResult].[Percentage] AS [Percentage], 
+    [AirResult].[AIR] AS [AIR], 
+    [AirResult].[Percentile] AS [Percentile], 
+    [AirResult].[Kanpur Rank] AS [Kanpur Rank], 
+    [AirResult].[Centre Rank] AS [Centre Rank], 
+    [AirResult].[Attempt Rate] AS [Attempt Rate], 
+    [AirResult].[Accuracy] AS [Accuracy]
+    FROM [dbo].[AirResult] AS [AirResult]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OmnimeritModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Uid" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StudentInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Uid" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Board" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AirResult">
+          <Key>
+            <PropertyRef Name="S_no" />
+          </Key>
+          <Property Name="S_no" Type="Double" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile_No" Type="Double" />
+          <Property Name="State_Code" Type="Double" />
+          <Property Name="Centre_Code" Type="Double" />
+          <Property Name="Institute" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="No_of_correct_response" Type="Double" />
+          <Property Name="No_of_Incorrect_response" Type="Double" />
+          <Property Name="No_of_responses_Left_Blank" Type="Double" />
+          <Property Name="Score" Type="Double" />
+          <Property Name="Percentage" Type="Single" />
+          <Property Name="AIR" Type="Double" />
+          <Property Name="Percentile" Type="Single" />
+          <Property Name="Kanpur_Rank" Type="Double" />
+          <Property Name="Centre_Rank" Type="Double" />
+          <Property Name="Attempt_Rate" Type="Double" />
+          <Property Name="Accuracy" Type="Single" />
+        </EntityType>
+        <EntityContainer Name="OmnimeritEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="logins" EntityType="Self.login" />
+          <EntitySet Name="StudentInfoes" EntityType="Self.StudentInfo" />
+          <EntitySet Name="AirResults" EntityType="Self.AirResult" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OmnimeritModelStoreContainer" CdmEntityContainer="OmnimeritEntities">
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="OmnimeritModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentInfoes">
+            <EntityTypeMapping TypeName="OmnimeritModel.StudentInfo">
+              <MappingFragment StoreEntitySet="StudentInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Uid" ColumnName="Uid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Board" ColumnName="Board" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AirResults">
+            <EntityTypeMapping TypeName="OmnimeritModel.AirResult">
+              <MappingFragment StoreEntitySet="AirResult">
+                <ScalarProperty Name="S_no" ColumnName="S#no" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Mobile_No" ColumnName="Mobile No" />
+                <ScalarProperty Name="State_Code" ColumnName="State Code" />
+                <ScalarProperty Name="Centre_Code" ColumnName="Centre Code" />
+                <ScalarProperty Name="Institute" ColumnName="Institute" />
+                <ScalarProperty Name="No_of_correct_response" ColumnName="No of correct response" />
+                <ScalarProperty Name="No_of_Incorrect_response" ColumnName="No of Incorrect response" />
+                <ScalarProperty Name="No_of_responses_Left_Blank" ColumnName="No of responses Left Blank" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="AIR" ColumnName="AIR" />
+                <ScalarProperty Name="Percentile" ColumnName="Percentile" />
+                <ScalarProperty Name="Kanpur_Rank" ColumnName="Kanpur Rank" />
+                <ScalarProperty Name="Centre_Rank" ColumnName="Centre Rank" />
+                <ScalarProperty Name="Attempt_Rate" ColumnName="Attempt Rate" />
+                <ScalarProperty Name="Accuracy" ColumnName="Accuracy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
