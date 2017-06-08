@@ -49,6 +49,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -88,10 +92,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Script\AccountGroup.js" />
     <Content Include="Content\Script\GetCircular.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Css\animate.min.css" />
     <Content Include="Scripts\Css\bootstrap.css" />
+    <Content Include="Scripts\Css\jquery-ui.min.css" />
     <Content Include="Scripts\Css\Library\bootstrap-progressbar-3.3.4.min.css" />
     <Content Include="Scripts\Css\prettify.min.css" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
@@ -137,9 +143,9 @@
     <Content Include="Scripts\JavaScripts\custom.min.js" />
     <Content Include="Scripts\JavaScripts\jquery-1.10.2.js" />
     <Content Include="Scripts\JavaScripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\JavaScripts\jquery-ui.min.js" />
     <Content Include="Scripts\JavaScripts\jquery.autocomplete.min.js" />
     <Content Include="Scripts\JavaScripts\jquery.hotkeys.js" />
-    <Content Include="Scripts\JavaScripts\jquery.min.js" />
     <Content Include="Scripts\JavaScripts\Library\bootstrap-progressbar.min.js" />
     <Content Include="Scripts\JavaScripts\Library\nprogress.js" />
     <Content Include="Scripts\JavaScripts\modernizr-2.6.2.js" />

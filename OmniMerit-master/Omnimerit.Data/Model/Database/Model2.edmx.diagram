@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="0da6be05a5b041b8b60fdccddd34b788" Name="Diagram1">
         <EntityTypeShape EntityType="OmnimeritModel1.Circular" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="OmnimeritModel1.AccountGroup" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OmnimeritModel1.AccountGroup" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

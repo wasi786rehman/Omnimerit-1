@@ -11,10 +11,10 @@ namespace Omnimerit.Data.Model.Database
 {
     using System;
     using System.Collections.Generic;
-
-    public partial class AccountGroup
+    
+    public partial class AccountGroup:Omnimerit.Data.BussinessLayer.Business.Ient
     {
-        public int AccountGroupId { get; set; }
+        public int Id { get; set; }
         public string AccountName { get; set; }
         public string GroupUnder { get; set; }
         public string Status { get; set; }

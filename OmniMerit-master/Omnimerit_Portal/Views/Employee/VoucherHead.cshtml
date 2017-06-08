@@ -1,4 +1,4 @@
-﻿
+﻿@model Omnimerit.Data.Model.Database.AccountGroup
 
 <link href="~/Scripts/Css/bootstrap.min.css" rel="stylesheet" />
 <!-- Font Awesome -->
@@ -6,12 +6,25 @@
 <!-- Custom Theme Style -->
 <link href="~/Scripts/Css/custom.min.css" rel="stylesheet" />
 
+<link href="~/Scripts/Grid/css/dataTables.jqueryui.css" rel="stylesheet" />
+<link href="~/Scripts/Grid/css/jquery-ui.css" rel="stylesheet" />
+<link href="~/Scripts/Grid/css/jquery.dataTables.css" rel=" stylesheet" />
+
+
 <script src="~/Scripts/JavaScripts/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="~/Scripts/JavaScripts/bootstrap.min.js"></script>
 <!-- FastClick -->
 <!-- Custom Theme Scripts -->
 <script src="~/Scripts/JavaScripts/custom.min.js"></script>
+
+
+<script src="~/Scripts/Grid/js/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/Grid/js/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/Grid/dataTables.jqueryui.js"></script>
+<!-- Function Scripts -->
+<script src="~/Scripts/Utilities/Utilities.js"></script>
+<script src="~/Content/Script/.js"></script>
 <style>
     body {
         background-color: white;
@@ -46,27 +59,30 @@
             </div>
             <div class="x_content">
                 <br>
-                <form class="form-horizontal form-label-left">
+               @using (Html.BeginForm("AddVoucherHead", "Employee", FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
+                {
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Voucher Head</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" placeholder="Voucher Head"> 
+                            @*<input type="text" class="form-control" placeholder="Voucher Head">*@ 
+                            @Html.TextBox("VoucherHead", null, new { @class = "form-control", placeholder = "Voucher Head" , id="vouchrhed" })
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Voucher Master</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <select class="form-control">
+                            <select name="VoucherMaster" class="form-control" id="vouchrmastr">
                                 <option>Select option</option>
                                 <option>Cash payment</option>
                                 <option>Event Collection</option>
+                                <option>Cash Receipt</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Account Group</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <select class="form-control">
+                           <select name="AccountGroup" class="form-control" id="accountgrp">
                                 <option>Select option</option>
                                 <option>Principle</option>
                                 <option>Professor</option>
@@ -77,7 +93,11 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Number</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                            <input type="text" class="form-control" placeholder="Number"> 
+                            @*<input type="text" class="form-control" placeholder="Number">*@ 
+                            @Html.TextBox("Number", null, new { @class = "form-control", placeholder = "Number" , id="num" })
+
+
+                            <input name="" type="hidden" id="idlabel" class="form-control" />
                         </div>
                     </div>
 
@@ -87,7 +107,7 @@
                             <button type="submit" class="btn btn-success">Create</button>
                         </div>
                     </div>
-                </form>
+               }
             </div>
         </div>
     </div>
@@ -117,44 +137,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Voucher Head</th>
-                            <th>Voucher Master</th>
-                            <th>Ledger Account</th>
-                            <th>Number</th>
-                            <th>Edit/Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Stationary</td>
-                            <td>Bank payment</td>
-                            <td>Professor</td>
-                            <td>100</td>
-                            <td><span class="glyphicon glyphicon-edit">/</span><span class="glyphicon glyphicon-remove"></span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Enterance Fees</td>
-                            <td>Cash Payment</td>
-                            <td>Student Account</td>
-                            <td>101</td>
-                            <td><span class="glyphicon glyphicon-edit">/</span><span class="glyphicon glyphicon-remove"></span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Lab Fees</td>
-                            <td>Bank Payment</td>
-                            <td>Principle</td>
-                            <td>102</td>
-                            <td><span class="glyphicon glyphicon-edit">/</span><span class="glyphicon glyphicon-remove"></span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <table class="table table-striped" id="resulttable"></table>
             </div>
         </div>
     </div>

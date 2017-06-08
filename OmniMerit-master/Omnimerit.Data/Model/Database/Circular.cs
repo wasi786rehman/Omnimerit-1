@@ -12,7 +12,7 @@ namespace Omnimerit.Data.Model.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Circular
+    public partial class Circular:Omnimerit.Data.BussinessLayer.Business.Ient
     {
         public int Id { get; set; }
         public string Subject { get; set; }

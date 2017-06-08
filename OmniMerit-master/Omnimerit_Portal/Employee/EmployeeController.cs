@@ -6,8 +6,7 @@ using System.Web.Mvc;
 using Omnimerit.Data;
 using Omnimerit.Data.BussinessLayer;
 using Omnimerit.Data.Model.Database;
-
-
+using Newtonsoft.Json;
 
 namespace Omnimerit_Portal.Employee
 {
@@ -61,13 +60,38 @@ namespace Omnimerit_Portal.Employee
 
 
         #region AccountGroup
+        [HttpPost]
+        public ActionResult AddAccountGroup(AccountGroup entity)
+        { 
+            Business bussiness = new Business();
+            entity.Status = "ACTIVE";
+            if (entity.Id == 0)
+                bussiness.Add<AccountGroup>(entity);
+            else
+                bussiness.Update<AccountGroup>(entity);
+           
+            return PartialView("AccountGroup");
+        }
+
+        [HttpPost]
+        public JsonResult DeleteAccountGrp(string Id)
+        {
+            AccountGroup c = new AccountGroup();
+            c.Id = Convert.ToInt16(Id);
+            Business bussiness = new Business();
+            bussiness.Delete<AccountGroup>(c);
+
+            return Json("", JsonRequestBehavior.AllowGet);
+
+        }
+
         [HttpGet]
-        public JsonResult ShowResult()
+        public JsonResult GetAccountGroup()
         {
 
             Business result = new Business();
 
-            return Json(result.ShowResult(), JsonRequestBehavior.AllowGet);
+            return Json(result.Retrieve<AccountGroup>(), JsonRequestBehavior.AllowGet);
 
         }
         #endregion AccountGroup
@@ -79,18 +103,26 @@ namespace Omnimerit_Portal.Employee
         {
 
             Business bussiness = new Business();
-            bussiness.AddCircular(circular);
+            bussiness.Add<Circular>(circular);
             return PartialView("Circular");
         }
-
+        [HttpGet]
         public JsonResult GetCircular()
         {
 
-            Business result = new Business();
-
-            return Json(result.GetCircular(), JsonRequestBehavior.AllowGet);
+            Business business = new Business();
+            var list = JsonConvert.SerializeObject(business.Retrieve<Circular>(), Formatting.None, new JsonSerializerSettings()
+            {
+                DateFormatString = "yyyy-MM-dd",
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            });
+            return Json(list, JsonRequestBehavior.AllowGet);
 
         }
+        public ActionResult EditCircular(string id)
+       {
+           return PartialView("Circular");
+       }
         #endregion Circular
 
     }
