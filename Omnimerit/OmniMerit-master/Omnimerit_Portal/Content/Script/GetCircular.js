@@ -18,7 +18,7 @@ function CircularInit()
 
 
 function CircularSuccess(data) {
-    alert(data);
+    
     var data = JSON.parse(data);
     Circular = data;
     var iconrender = function (data, type, row) {
@@ -62,10 +62,35 @@ function EditCircular(rowData) {
                $('#reference_no').val(value.Reference_Number);
                $('#editor-one').html(value.Content);
                $('#datte').val(value.Date);
+               $('#idlabel').val(value.Id);
             activaTab('Circular');
               
         } 
     });
+}
+
+function DeleteCircular(rowData) {
+    debugger;
+    if (confirm("Are You Sure Delete Selected Circular? " + rowData)) {
+        var data = { 'Id': rowData }
+        $.post('/Employee/DeleteCircular', data,
+        function (data) {
+            if (data == true) {
+                // location = location.href;
+
+            }
+
+        });
+        alert(" successfully deleted!");
+        var table = $('#tabular').DataTable();
+        table.destroy();
+        $('#tabular').empty();
+        CircularInit();
+    }
+
+    else {
+        alert("Not delete something Wrong");
+    }
 }
 
 

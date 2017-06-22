@@ -93,19 +93,24 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Script\AccountGroup.js" />
+    <Content Include="Content\Script\FeeCategory.js" />
     <Content Include="Content\Script\GetCircular.js" />
+    <Content Include="Content\Script\LessonPlanning.js" />
+    <Content Include="Content\Script\ManageTransportAllocation.js" />
+    <Content Include="Content\Script\TransportAllocation.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Css\animate.min.css" />
     <Content Include="Scripts\Css\bootstrap.css" />
+    <Content Include="Scripts\Css\buttons.dataTables.min.css" />
     <Content Include="Scripts\Css\jquery-ui.min.css" />
     <Content Include="Scripts\Css\Library\bootstrap-progressbar-3.3.4.min.css" />
     <Content Include="Scripts\Css\prettify.min.css" />
-    <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Css\bootstrap.min.css" />
     <Content Include="Scripts\Css\custom.min.css" />
     <Content Include="Scripts\Css\font-awesome.min.css" />
     <Content Include="Scripts\fonts\fontawesome-webfont.svg" />
+    <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\Grid\css\dataTables.jqueryui.css" />
     <Content Include="Scripts\Grid\css\jquery-ui.css" />
     <Content Include="Scripts\Grid\css\jquery.dataTables.css" />
@@ -132,20 +137,29 @@
     <Content Include="Scripts\JavaScripts\bootstrap-wysiwyg.min.js" />
     <Content Include="Scripts\JavaScripts\bootstrap.js" />
     <Content Include="Scripts\JavaScripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\dev.omnimerit.com - Web Deploy.pubxml" />
+    <Content Include="Scripts\Grid\images\Sorting icons.psd" />
+    <Content Include="Scripts\JavaScripts\buttons.flash.min.js" />
     <Content Include="Scripts\fonts\fontawesome-webfont.eot" />
     <Content Include="Scripts\fonts\fontawesome-webfont.ttf" />
     <Content Include="Scripts\fonts\fontawesome-webfont.woff" />
     <Content Include="Scripts\fonts\fontawesome-webfont.woff2" />
     <Content Include="Scripts\fonts\FontAwesome.otf" />
-    <None Include="Properties\PublishProfiles\dev.omnimerit.com - Web Deploy.pubxml" />
-    <Content Include="Scripts\Grid\images\Sorting icons.psd" />
+    <Content Include="Scripts\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\JavaScripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\JavaScripts\buttons.HTML5.min.js" />
     <Content Include="Scripts\JavaScripts\custom.min.js" />
+    <Content Include="Scripts\JavaScripts\dataTables.buttons.min.js" />
     <Content Include="Scripts\JavaScripts\jquery-1.10.2.js" />
     <Content Include="Scripts\JavaScripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\JavaScripts\jquery-1.12.4.js" />
     <Content Include="Scripts\JavaScripts\jquery-ui.min.js" />
     <Content Include="Scripts\JavaScripts\jquery.autocomplete.min.js" />
+    <Content Include="Scripts\JavaScripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\JavaScripts\jquery.hotkeys.js" />
+    <Content Include="Scripts\JavaScripts\jszip.min.js" />
     <Content Include="Scripts\JavaScripts\Library\bootstrap-progressbar.min.js" />
     <Content Include="Scripts\JavaScripts\Library\nprogress.js" />
     <Content Include="Scripts\JavaScripts\modernizr-2.6.2.js" />
@@ -162,15 +176,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\TransportDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Scripts\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Scripts\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\JavaScripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Portal\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
@@ -193,6 +205,10 @@
     <Content Include="Views\Employee\ActiveTimeTable.cshtml" />
     <Content Include="Scripts\Less\buttons.less" />
     <Content Include="Views\Employee\SetTimeTable.cshtml" />
+    <Content Include="Views\Employee\FeeCategory.cshtml" />
+    <Content Include="Views\Employee\FeeDetails.cshtml" />
+    <Content Include="Views\Employee\TransportAllocation.cshtml" />
+    <Content Include="Views\Employee\ManageTransportAllocation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -202,8 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="fonts\" />
-    <Folder Include="Models\" />
+    <Folder Include="Scripts\Grid\fonts\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Omnimerit.Data\Omnimerit.Data.csproj">

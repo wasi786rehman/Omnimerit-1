@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Omnimerit.Data.BussinessLayer
 {
     public class Business
@@ -74,10 +75,7 @@ namespace Omnimerit.Data.BussinessLayer
         }
 
         #endregion Generic
-          public interface Ient
-        {
-        int Id { get; set; }
-    }
+       
 
         #region AccountGroup
 
@@ -194,5 +192,78 @@ namespace Omnimerit.Data.BussinessLayer
 
         #endregion Circular
 
+        #region FeeDetails
+
+        public TransportAllocationDetail GetFeeDetails()
+        {
+            TransportAllocationDetail tad = new TransportAllocationDetail();
+             tad = (from c in db.TransportAllocationDetails where c.UserType == "Employee" && c.UserName == "Gunjan" select c).FirstOrDefault();
+
+             return tad;
+        
+        }
+        public List<TransportAllocationDetail> GetUserNameList(string UserType)
+        {
+            List<TransportAllocationDetail> tad = new List<TransportAllocationDetail>();
+            tad = (from d in db.TransportAllocationDetails where d.UserType == UserType select d).ToList();
+
+            return tad;
+        }
+
+        #endregion
+        #region LessonPlanning
+
+        public List<LessonPlanning> GetExcelData(LessonPlanning data)
+        {
+
+            try
+            {
+                List<LessonPlanning> lp = new List<LessonPlanning>();
+                
+                
+              if((data.Course !=null)&&(data.Batch !=null)&& (data.Subject!=null))
+              {
+
+                  lp = (from e in db.LessonPlannings where e.Course == data.Course && e.Batch == data.Batch && e.Subject == data.Subject select e).ToList();
+
+                 
+
+              }
+
+              return lp;
+            }
+            catch (Exception ex) { throw ex; }
+
+        }
+        #endregion
+        #region ManageTransportAllocation
+
+        public bool UpdateManageTransportAllocation(TransportAllocationDetail tad)
+        {
+            try
+            {
+                if (Convert.ToInt16(tad.Id) > 0)
+                {
+                    TransportAllocationDetail tt = (from c in db.TransportAllocationDetails where c.Id == tad.Id select c).FirstOrDefault();
+                    tt.RouteCode = tad.RouteCode;
+                    tt.Source = tad.Source;
+                    tt.Destination = tad.Destination;
+                    db.SaveChanges();
+
+
+                }
+                return true;
+            }
+            catch (Exception ex) { throw ex; }
+
+
+
+        }
+        #endregion
+
+    }
+    public interface Ient
+    {
+        int Id { get; set; }
     }
 }

@@ -27,5 +27,8 @@ namespace Omnimerit.Data.Model.Database
     
         public virtual DbSet<Circular> Circulars { get; set; }
         public virtual DbSet<AccountGroup> AccountGroups { get; set; }
+        public virtual DbSet<FeeCategory> FeeCategories { get; set; }
+        public virtual DbSet<LessonPlanning> LessonPlannings { get; set; }
+        public virtual DbSet<TransportAllocationDetail> TransportAllocationDetails { get; set; }
     }
 }

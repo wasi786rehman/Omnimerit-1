@@ -17,6 +17,7 @@
     <!-- Custom Theme Style -->
 
     <link href="~/Scripts/Css/custom.min.css" rel="stylesheet" />
+
 </head>
 <body class="nav-md">
     <div class="container body">
@@ -70,16 +71,12 @@
                                             <a>Time Table<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu">
-                                                    <a onclick="change('SetTimeTable')">Set TimeTable</a>
+                                                    <a onclick="change('SetTimeTable')">View TimeTable</a>
                                                 </li>
-                                                <li>
-                                                    <a onclick="change('ActiveTimeTable')">Active TimeTable</a>
-                                                </li>
-                                               
                                             </ul>
                                         </li>
 
-                                        <li>
+                                        @*<li>
                                             <a>Assignment &amp; Notes <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu">
@@ -92,10 +89,8 @@
                                                     <a href="#level2_2">Assignment Import</a>
                                                 </li>
                                             </ul>
-                                        </li>
-                                        <li>
-                                       
-                                        </li>
+                                        </li>*@
+                                        
                                         <li>
                                             <a>Circulars<span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
@@ -116,32 +111,9 @@
                                             <a>Fees <span class="fa fa-chevron-down"></span></a>
                                             <ul class="nav child_menu">
                                                 <li class="sub_menu">
-                                                    <a href="level2.html">Fee Category</a>
-                                                </li>
-                                                <li class="sub_menu">
-                                                    <a href="level2.html">Fee Sub Category</a>
-                                                </li>
-                                                <li class="sub_menu">
-                                                    <a href="level2.html">Fee Waiver</a>
-                                                </li>
-                                                <li class="sub_menu">
-                                                    <a href="level2.html">Fee Template</a>
-                                                </li>
-                                                <li class="sub_menu">
-                                                    <a href="level2.html">Fee Allocation</a>
-                                                </li>
-                                                <li class="sub_menu">
-                                                    <a href="level2.html">Fee Collection</a>
-                                                </li>
-                                                <li class="sub_menu">
-                                                    <a href="level2.html">Quick Payment</a>
-                                                </li>
-                                                <li class="sub_menu">
-                                                    <a href="level2.html">Reports</a>
-                                                </li>
-                                                <li class="sub_menu">
-                                                    <a href="level2.html">Fee Import</a>
-                                                </li>
+                                                    <a onclick="change('FeeCategory')">Fee Category</a>
+                                                </li>   
+                                               
                                             </ul>
                                         </li>
                                         <li>
@@ -158,7 +130,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
+                                @*<li>
                                     <a><i class="fa fa-clone"></i>Library <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="fixed_sidebar.html">Add Category</a></li>
@@ -170,56 +142,19 @@
                                         <li><a href="fixed_sidebar.html">Import</a></li>
 
                                     </ul>
-                                </li>
+                                </li>*@
                                 <li>
                                     <a><i class="fa fa-car"></i>Transport <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="fixed_sidebar.html">Add Vehicle</a></li>
-                                        <li><a href="fixed_footer.html">Add Driver</a></li>
-                                        <li><a href="fixed_sidebar.html">Add Route</a></li>
-                                        <li><a href="fixed_footer.html">Add Destination</a></li>
-                                        <li><a href="fixed_sidebar.html">Transport Allocation </a></li>
-                                        <li><a href="fixed_footer.html">Fee Collection </a></li>
-                                        <li><a href="fixed_sidebar.html">Import</a></li>
-                                        <li><a href="fixed_sidebar.html">Sms Alert</a></li>
+                                        <li><a onclick="change('FeeDetails')">Fee Details</a></li>
+                                      
+                                        <li><a onclick="change('TransportAllocation')">Transport Allocation </a></li>
+                                        <li><a onclick="change('ManageTransportAllocation')">Manage Transport Allocation </a></li>
+                                        
                                     </ul>
                                 </li>
-                                <li>
-                                    <a><i class="fa fa-bed"></i>Hostel <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li class="sub_menu"><a href="fixed_sidebar.html">Hostel Details</a></li>
-                                        <li class="sub_menu"><a href="fixed_footer.html">Hostel Rooms</a></li>
-                                        <li class="sub_menu"><a href="fixed_sidebar.html">Hostel Allocation</a></li>
-                                        <li class="sub_menu"><a href="fixed_footer.html">Request Details</a></li>
-                                        <li class="sub_menu"><a href="fixed_sidebar.html">Hostel Transfer/Vacate</a></li>
-                                        <li class="sub_menu"><a href="fixed_footer.html">Hostel Register </a></li>
-                                        <li class="sub_menu"><a href="fixed_sidebar.html">Hostel Visitors</a></li>
-                                        <li class="sub_menu"><a href="fixed_sidebar.html">Hostel Fee Collection</a></li>
-                                        <li class="sub_menu">
-                                            <a>Reports<span class="fa fa-chevron-down"></span></a>
-                                            <ul class="nav child_menu">
-                                                <li class="sub_menu"><a>Hostel Detail Report</a></li>
-                                                <li class="sub_menu"><a>Room Availability Report</a></li>
-                                                <li class="sub_menu"><a>Room Request Report</a></li>
-                                                <li class="sub_menu"><a>Room Occupancy Report </a></li>
-                                                <li class="sub_menu"><a>Fee Report</a></li>
-
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-commenting-o "></i>SMS <span class="fa fa-chevron-down"></span></a>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-bar-chart"></i>Performance <span class="fa fa-chevron-down"></span></a>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-calendar"></i>Events <span class="fa fa-chevron-down"></span></a>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-tasks"></i>Task <span class="fa fa-chevron-down"></span></a>
-                                </li>
+                              
+                               
                                 <li>
                                     <a><i class="fa fa-bar-chart"></i>Report <span class="fa fa-chevron-down"></span></a>
                                 </li>
@@ -325,9 +260,9 @@
     <!-- /footer content -->
     <!-- jQuery -->
 
-    <script src="~/Scripts/JavaScripts/jquery.min.js"></script>
+    @*<script src="~/Scripts/JavaScripts/jquery.min.js"></script>*@
     <!-- Bootstrap -->
-
+    <script src="~/Scripts/JavaScripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/JavaScripts/bootstrap.min.js"></script>
     <!-- FastClick -->
     <!-- Custom Theme Scripts -->

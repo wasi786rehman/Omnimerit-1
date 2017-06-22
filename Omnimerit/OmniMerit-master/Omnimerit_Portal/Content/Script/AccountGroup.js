@@ -22,12 +22,12 @@ function AccountGroupSuccess(data) {
         return '<span class="glyphicon glyphicon-edit" id="editbtn" onclick="EditAccountGroup(' + row.Id + ')"></span> &nbsp&nbsp<span class="glyphicon glyphicon-remove-sign" id="deletebtn" onclick="DeleteAccountGroup(' + row.Id + ')"></span>';
     }
     $('#result').DataTable({
-
+        "scrollX": true,
         "data": data,
         "aoColumns": [
             { "mData": "Id", "visible": false, "searchable": false },
-              { "mData": "AccountName", "sTitle": "AccountName" },
-                     { "mData": "GroupUnder", "sTitle": "GroupUnder" },
+              { "mData": "AccountName", "sTitle": "Account Name" },
+                     { "mData": "GroupUnder", "sTitle": "Group Under" },
                       { "mData": "Status", "sTitle": "Status" },
                       {
                           "render": iconrender

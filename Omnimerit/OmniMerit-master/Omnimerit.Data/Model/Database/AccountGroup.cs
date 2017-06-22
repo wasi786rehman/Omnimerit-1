@@ -11,11 +11,17 @@ namespace Omnimerit.Data.Model.Database
 {
     using System;
     using System.Collections.Generic;
+    using Omnimerit.Data.BussinessLayer;
+    using System.ComponentModel.DataAnnotations;
     
-    public partial class AccountGroup:Omnimerit.Data.BussinessLayer.Business.Ient
+    public partial class AccountGroup
     {
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "*Please enter Account Name")]
         public string AccountName { get; set; }
+
+        [Required(ErrorMessage = "*Please Select a valid Group")]
         public string GroupUnder { get; set; }
         public string Status { get; set; }
     }
