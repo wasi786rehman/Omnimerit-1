@@ -174,9 +174,9 @@
 
                                         </div>
                                         @*<textarea name="descr" id="descr" style="display:none;"></textarea>*@
-                                        @Html.Hidden(x => x.Content, new { id = "mySubmission" })
+                                        @*@Html.Hidden(x => x.Content, new { id = "mySubmission" })*@
                                        
-                                        @*<input type='hidden' name='Content' id='mySubmission' />*@
+                                        <input type='hidden' name='Content' id='mySubmission' />
                                         <br />
 
 
@@ -193,7 +193,6 @@
                                     @Html.ValidationMessageFor(x => x.Date, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
 
                             <div class="ln_solid"></div>
                             <div class="form-group">

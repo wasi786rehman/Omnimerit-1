@@ -211,57 +211,61 @@
                         <div class="x_content">
                             <br>
                             @*<form class="form-horizontal form-label-left">*@
-                 @*@using (Html.BeginForm("", "Employee", FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
-                {*@
-                                <div class="form-group">
-                                    <label class="control-label col-md-1 col-sm-1 col-xs-12">Course</label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <select class="form-control" name="Course" id="rcourse">
-                                            <option>Please Select</option>
-                                            <option>PCM</option>
-                                            <option>PCB</option>
-                                            <option>IIT</option>
-                                        </select>
-                                    </div>
-
-                                    <label class="control-label col-md-1 col-sm-1 col-xs-12">Batch</label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <select class="form-control" name="Batch" id="rbatch">
-                                            <option>Please Select</option>
-                                            <option>BatchA</option>
-                                            <option>BatchB</option>
-                                            <option>BatchC</option>
-                                        </select>
-                                    </div>
-                                    <label class="control-label col-md-1 col-sm-1 col-xs-12">Subject</label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <select class="form-control" name="Subject" id="rsub">
-                                            <option>Please Select</option>
-                                            <option>Science</option>
-                                            <option>Chemistry</option>
-                                            <option>Maths</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-1 col-sm-1 col-xs-12">
-                                        <button type="button" class="btn btn-success" onclick="getExceldata()">Search</button>
-
-                                    </div>
+                            @*@using (Html.BeginForm("", "Employee", FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
+            {*@
+                            <div class="form-group">
+                                <label class="control-label col-md-1 col-sm-1 col-xs-12">Course</label>
+                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                    <select class="form-control" name="Course" id="rcourse">
+                                        <option>Please Select</option>
+                                        <option>PCM</option>
+                                        <option>PCB</option>
+                                        <option>IIT</option>
+                                    </select>
                                 </div>
-                 @*}*@
+
+                                <label class="control-label col-md-1 col-sm-1 col-xs-12">Batch</label>
+                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                    <select class="form-control" name="Batch" id="rbatch">
+                                        <option>Please Select</option>
+                                        <option>BatchA</option>
+                                        <option>BatchB</option>
+                                        <option>BatchC</option>
+                                    </select>
+                                </div>
+                                <label class="control-label col-md-1 col-sm-1 col-xs-12">Subject</label>
+                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                    <select class="form-control" name="Subject" id="rsub">
+                                        <option>Please Select</option>
+                                        <option>Science</option>
+                                        <option>Chemistry</option>
+                                        <option>Maths</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-1 col-sm-1 col-xs-12">
+                                    <button type="button" class="btn btn-success" onclick="getExceldata()">Search</button>
+
+                                </div>
+                            </div>
                             </br>
                             </br>
                             <div class="clearfix"></div>
                             </br>
                             </br>
-                            <div class="x_content" id="divdata">
-                                <table class="table table-striped" id="result2"></table>
 
-                            </div>
+
+                            <table class="table table-striped" id="result2"></table>
+                            @*}*@
+                        </div>
+                           
+                               
+
+                           
                             
                                 
                            
-                        </div>
+                        
                     </div>
                 </div>
             </div>
