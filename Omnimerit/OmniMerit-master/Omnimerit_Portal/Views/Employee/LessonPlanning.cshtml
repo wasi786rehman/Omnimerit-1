@@ -1,0 +1,274 @@
+﻿
+@model Omnimerit.Data.Model.Database.LessonPlanning
+<link href="~/Scripts/Css/bootstrap.min.css" rel="stylesheet" />
+<!-- Font Awesome -->
+<link href="~/Scripts/Css/font-awesome.min.css" rel="stylesheet" />
+<!-- Custom Theme Style -->
+<link href="~/Scripts/Css/custom.min.css" rel="stylesheet" />
+
+<link href="~/Scripts/Grid/css/dataTables.jqueryui.css" rel="stylesheet" />
+<link href="~/Scripts/Grid/css/jquery-ui.css" rel="stylesheet" />
+<link href="~/Scripts/Grid/css/jquery.dataTables.css" rel=" stylesheet" />
+<!-----Custom Export to Excel Button Style-->
+<link href="~/Scripts/Css/buttons.dataTables.min.css" rel="stylesheet" />
+
+
+@*//<script src="~/Scripts/JavaScripts/jquery..js"></script>*@
+@*<script src="~/Scripts/JavaScripts/jquery-1.10.2.min.js"></script>*@
+<script src="~/Scripts/JavaScripts/jquery-1.12.4.js"></script>
+<!-- Bootstrap -->
+<script src="~/Scripts/JavaScripts/bootstrap.min.js"></script>
+<!-- FastClick -->
+<!-- Custom Theme Scripts -->
+<script src="~/Scripts/JavaScripts/custom.min.js"></script>
+
+<script src="~/Scripts/Grid/js/jquery-1.8.2.min.js"></script>
+@*<script src="~/Scripts/Grid/js/jquery.dataTables.min.js"></script>*@
+<script src="~/Scripts/Grid/dataTables.jqueryui.js"></script>
+
+<!-----Custom Export to Excel Button Script-->
+<script src="~/Scripts/JavaScripts/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/JavaScripts/dataTables.buttons.min.js"></script>
+
+<script src="~/Scripts/JavaScripts/jszip.min.js"></script>
+<script src="~/Scripts/JavaScripts/buttons.HTML5.min.js"></script>
+
+
+<!--FuctionJavascript-->
+<script src="~/Content/Script/LessonPlanning.js"></script>
+<script src="~/Scripts/Utilities/Utilities.js"></script>
+<style>
+    body {
+        background-color: white;
+        margin-top: 1%;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-12">
+
+            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                <li role="presentation" class="active" id="LesionPlaning">
+                    <a href="#LessonPlanning" id="LessonPlanning-tab" role="tab" data-toggle="tab" aria-expanded="true">Lesson Planning</a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="#Reports" role="tab" id="Reports-tab" data-toggle="tab" aria-expanded="false">Reports</a>
+                </li>
+
+            </ul>
+
+
+
+        </div>
+       
+        <div class="tab-content">
+            <div class="tab-pane fade active in" id="LessonPlanning" aria-labelledby="LessonPlanning-tab">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Lesson Planning<small></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#">Settings</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br>
+                            @*<form class="form-horizontal form-label-left">*@
+                            @using (Html.BeginForm("AddLessonPlanning", "Employee", FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
+                            {
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Course</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        @Html.DropDownListFor(x => x.Course, new SelectListItem[]{
+                                            new SelectListItem() {Text = "PCM", Value="PCM"},
+                                            new SelectListItem() {Text = "PCB", Value="PCB"},
+                                            new SelectListItem() {Text = "IIT", Value="IIT"}}, "Please Select", new { @class = "form-control", id = "course" })
+                                        @Html.ValidationMessageFor(x => x.Course, "", new { @class = "text-danger" })
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Batch</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        @Html.DropDownListFor(x => x.Batch, new SelectListItem[]{
+                                            new SelectListItem() {Text = "BatchA", Value="BatchA"},
+                                            new SelectListItem() {Text = "BatchB", Value="BatchB"},
+                                            new SelectListItem() {Text = "BatchC", Value="BatchC"}}, "Please Select", new { @class = "form-control", id = "batch" })
+                                        @Html.ValidationMessageFor(x => x.Batch, "", new { @class = "text-danger" })
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Subject</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        @Html.DropDownListFor(x => x.Subject, new SelectListItem[]{
+                                            new SelectListItem() {Text = "Physics", Value="Physics"},
+                                            new SelectListItem() {Text = "Chemistry", Value="Chemistry"}, 
+                                            new SelectListItem() {Text = "Science", Value="Science"},
+                                            new SelectListItem() {Text = "Maths", Value="Maths"}}, "Please Select", new { @class = "form-control", id = "sub" })
+                                        @Html.ValidationMessageFor(x => x.Subject, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Lecture Code</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                           
+                                                @*<input type="text" class="form-control" placeholder="Lecture Code">*@
+                                                @Html.TextBoxFor(x=>x.Lect_Code, new { @class = "form-control", placeholder = "Lecture Code", id = "lecturecode" })
+                                                @Html.ValidationMessageFor(x => x.Lect_Code, "", new { @class = "text-danger" })
+
+
+                                            <input name="Id" type="hidden" id="idlabel" class="form-control" value="0" />
+
+                                        </div>
+
+                                    </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                        <button type="submit" class="btn btn-success">Save</button>
+
+
+                                    </div>
+                                </div>
+}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><small></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#">Settings 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Settings 2</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <table class="table table-striped" id="result" style="width:500px"></table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="Reports" aria-labelledby="Reports-tab">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Report <small></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#">Settings</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br>
+                            @*<form class="form-horizontal form-label-left">*@
+                            @*@using (Html.BeginForm("", "Employee", FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
+            {*@
+                            <div class="form-group">
+                                <label class="control-label col-md-1 col-sm-1 col-xs-12">Course</label>
+                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                    <select class="form-control" name="Course" id="rcourse">
+                                        <option>Please Select</option>
+                                        <option>PCM</option>
+                                        <option>PCB</option>
+                                        <option>IIT</option>
+                                    </select>
+                                </div>
+
+                                <label class="control-label col-md-1 col-sm-1 col-xs-12">Batch</label>
+                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                    <select class="form-control" name="Batch" id="rbatch">
+                                        <option>Please Select</option>
+                                        <option>BatchA</option>
+                                        <option>BatchB</option>
+                                        <option>BatchC</option>
+                                    </select>
+                                </div>
+                                <label class="control-label col-md-1 col-sm-1 col-xs-12">Subject</label>
+                                <div class="col-md-2 col-sm-2 col-xs-12">
+                                    <select class="form-control" name="Subject" id="rsub">
+                                        <option>Please Select</option>
+                                        <option>Science</option>
+                                        <option>Chemistry</option>
+                                        <option>Maths</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-1 col-sm-1 col-xs-12">
+                                    <button type="button" class="btn btn-success" onclick="getExceldata()">Search</button>
+
+                                </div>
+                            </div>
+                            </br>
+                            </br>
+                            <div class="clearfix"></div>
+                            </br>
+                            </br>
+
+
+                            <table class="table table-striped" id="result2"></table>
+                            @*}*@
+                        </div>
+                           
+                               
+
+                           
+                            
+                                
+                           
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
